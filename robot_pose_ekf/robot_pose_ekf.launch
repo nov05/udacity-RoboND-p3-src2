@@ -10,7 +10,7 @@
   <param name="vo_used" value="false"/>
 
   <!-- <remap from="odom" to="pr2_base_odometry/odom" /> -->
-  <remap from="imu_data" to="/mobile_base/sensors/imu_data" />
+  <remap from="imu" to="mobile_base/sensors/imu_data" />
 </node>
 
 </launch>
