@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="turtlebot3_burger_sim" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:arg name="laser_visual" default="false"/>
-  <xacro:arg name="imu_visual"   default="false"/>
+  <xacro:arg name="laser_visual" default="false" />
+  <xacro:arg name="imu_visual" default="false" />
 
   <gazebo reference="base_link">
     <material>Gazebo/DarkGrey</material>
@@ -53,12 +53,14 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometrySource>world</odometrySource>
-      <publishOdomTF>true</publishOdomTF>
+      <!-- changed by nov05 -->
+      <publishOdomTF>false</publishOdomTF>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishWheelTF>false</publishWheelTF>
       <!-- changed by nov05 -->
       <publishTf>false</publishTf>
-      <publishWheelJointState>true</publishWheelJointState>
+      <!-- changed by nov05 -->
+      <publishWheelJointState>false</publishWheelJointState>
       <legacyMode>false</legacyMode>
       <updateRate>30</updateRate>
       <leftJoint>wheel_left_joint</leftJoint>
