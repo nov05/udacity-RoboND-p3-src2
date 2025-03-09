@@ -30,15 +30,16 @@
   </node>
 
   <!-- Turtlebot Teleop -->
-  <node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard"
-    output="screen">
+  <!-- <node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard"output="screen"> -->
+  <include file="$(find turtlebot3_teleop)/launch/turtlebot3_teleop_key.launch">
     <param name="scale_linear" value="0.5" type="double" />
     <param name="scale_angular" value="1.5" type="double" />
     <remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop" />
-  </node>
+    <!-- </node> -->
+  </include>
 
   <!--RVIZ-->
   <!-- <node pkg="rviz" type="rviz" name="rviz" 
-    args="-d /home/robond/catkin_ws2/src/rviz/EKFLab.rviz"/> -->
+    args="-d /home/robond/catkin_ws2/src/rviz/ekf_lab.rviz"/> -->
 
 </launch>
