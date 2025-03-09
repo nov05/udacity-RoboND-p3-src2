@@ -1,0 +1,44 @@
+<launch>
+
+  <!-- Odom To Trajectory Package -->
+  <!-- The path_ekf_plotter node -->
+  <node name="path_ekf_plotter" type="path_ekf_plotter.py" pkg="odom_to_trajectory">
+  </node>
+  <!-- The path_odom_plotter node -->
+  <node name="path_odom_plotter" type="path_odom_plotter.py" pkg="odom_to_trajectory">
+  </node>
+
+  <!-- RobotPoseEKF package -->
+  <!-- The robot_pose_ekf node -->
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom_combined" />
+    <param name="base_footprint_frame" value="base_footprint" />
+    <param name="freq" value="30.0" />
+    <param name="sensor_timeout" value="1.0" />
+    <param name="odom_used" value="true" />
+    <param name="imu_used" value="true" />
+    <param name="vo_used" value="false" />
+    <remap from="imu_data" to="imu" />
+  </node>
+
+  <!-- TurleBot3 Gazebo -->
+  <include file="$(find turtlebot3_simulations)/launch/turtlebot3_world.launch"></include>
+
+  <!-- Robot State Publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+
+  <!-- Turtlebot Teleop -->
+  <node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard"
+    output="screen">
+    <param name="scale_linear" value="0.5" type="double" />
+    <param name="scale_angular" value="1.5" type="double" />
+    <remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop" />
+  </node>
+
+  <!--RVIZ-->
+  <!-- <node pkg="rviz" type="rviz" name="rviz" 
+    args="-d /home/robond/catkin_ws2/src/rviz/EKFLab.rviz"/> -->
+
+</launch>
