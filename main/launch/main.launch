@@ -22,7 +22,7 @@
   </node>
 
   <!-- TurleBot3 Gazebo -->
-  <include file="$(find turtlebot3_simulations)/launch/turtlebot3_world.launch"></include>
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch"></include>
 
   <!-- Robot State Publisher -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
