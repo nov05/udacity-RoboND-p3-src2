@@ -70,18 +70,18 @@ if __name__ == '__main__':
 
 
 
-        #Node and msg initialization
+        ## Node and msg initialization
         rospy.init_node('path_odom_plotter')
 
 
-        #Rosparams that are set in the launch
-        #max size of array pose msg from the path
+        ## Rosparams that are set in the launch
+        ## max size of array pose msg from the path
         if not rospy.has_param("~max_list_append"):
-                rospy.logwarn('The parameter max_list_append dont exists')
+                rospy.logwarn("The parameter max_list_append dosn't exists")
         max_append = rospy.set_param("~max_list_append",1000) 
         max_append = 1000
         if not (max_append > 0):
-                rospy.logwarn('The parameter max_list_append not is correct')
+                rospy.logwarn("The parameter max_list_append isn't correct")
                 sys.exit()
         pub = rospy.Publisher('/odompath', Path, queue_size=1)
 
