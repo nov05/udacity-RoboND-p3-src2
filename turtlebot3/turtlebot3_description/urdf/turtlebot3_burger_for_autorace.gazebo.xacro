@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot name="turtlebot3_burger_for_autorace_sim" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:arg name="laser_visual" default="false"/>
-  <xacro:arg name="camera_visual" default="false"/>
-  <xacro:arg name="imu_visual"   default="false"/>
+  <xacro:arg name="laser_visual" default="false" />
+  <xacro:arg name="camera_visual" default="false" />
+  <xacro:arg name="imu_visual" default="false" />
 
   <gazebo reference="base_link">
     <material>Gazebo/DarkGrey</material>
@@ -54,11 +54,11 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometrySource>world</odometrySource>
-      <publishOdomTF>true</publishOdomTF>
+      <!-- changed by nov05 -->
+      <publishOdomTF>false</publishOdomTF>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishWheelTF>false</publishWheelTF>
-      <!-- changed by nov05 -->
-      <publishTf>false</publishTf>
+      <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>false</legacyMode>
       <updateRate>30</updateRate>
@@ -133,22 +133,23 @@
     </sensor>
   </gazebo>
 
-  <!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
+  <!--link
+  : https://www.raspberrypi.org/documentation/hardware/camera/-->
   <gazebo reference="camera_rgb_frame">
     <sensor type="camera" name="Pi Camera">
       <always_on>true</always_on>
       <visualize>$(arg camera_visual)</visualize>
       <camera>
-          <horizontal_fov>1.085595</horizontal_fov>
-          <image>
-              <width>320</width>
-              <height>240</height>
-              <format>R8G8B8</format>
-          </image>
-          <clip>
-              <near>0.03</near>
-              <far>100</far>
-          </clip>
+        <horizontal_fov>1.085595</horizontal_fov>
+        <image>
+          <width>320</width>
+          <height>240</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.03</near>
+          <far>100</far>
+        </clip>
       </camera>
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
