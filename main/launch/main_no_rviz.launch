@@ -33,8 +33,9 @@
     <remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop" />
   </include>
 
-  <!-- RVIZ -->
-  <node pkg="rviz" type="rviz" name="rviz"
-    args="-d /home/robond/catkin_ws2/src/main/rviz/ekf_lab.rviz" />
+  <!-- Run rqt_image_view to visualize the /camera/image topic -->
+  <node pkg="rqt_image_view" type="rqt_image_view" name="image_view" output="screen">
+    <remap from="/image" to="/camera/image" />
+  </node>
 
 </launch>
