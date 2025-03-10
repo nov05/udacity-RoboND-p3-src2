@@ -54,10 +54,11 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometrySource>world</odometrySource>
-      <!-- changed by nov05 -->
-      <publishOdomTF>false</publishOdomTF>
+      <!-- default true, nov05 -->
+      <publishOdomTF>true</publishOdomTF>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishWheelTF>false</publishWheelTF>
+      <!-- default true, nov05 -->
       <publishTf>true</publishTf>
       <publishWheelJointState>true</publishWheelJointState>
       <legacyMode>false</legacyMode>
