@@ -1,4 +1,4 @@
-syntax = "proto3";   
+syntax = "proto2";   
 package collision_map_creator_msgs.msgs;
 import "vector2d.proto";
 
@@ -10,6 +10,6 @@ message CollisionMapRequest
   required gazebo.msgs.Vector2d   lowerLeft  = 4;
   required double                 height     = 5;
   required double                 resolution = 6;
-  string                 filename   = 7 [default = ""];
-  int32                  threshold  = 8 [default = 255];
+  optional string                 filename   = 7 [default = ""];
+  optional int32                  threshold  = 8 [default = 255];
 }
