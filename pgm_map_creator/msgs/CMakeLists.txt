@@ -3,7 +3,8 @@ find_package(Protobuf REQUIRED)
 set(PROTOBUF_IMPORT_DIRS)
 foreach(ITR ${GAZEBO_INCLUDE_DIRS})
   if(ITR MATCHES ".*gazebo-[0-9.]+$")
-    set(PROTOBUF_IMPORT_DIRS "${ITR}/gazebo/msgs/proto")
+    # set(PROTOBUF_IMPORT_DIRS "${ITR}/gazebo/msgs/proto")     ## changed by nov05
+    set(PROTOBUF_IMPORT_DIRS "${ITR}/gazebo-11/msgs/proto")
   endif()
 endforeach()
 
