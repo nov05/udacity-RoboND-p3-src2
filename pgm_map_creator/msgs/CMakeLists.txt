@@ -10,6 +10,7 @@ endforeach()
 
 set (msgs
   collision_map_request.proto
+  /usr/include/gazebo-11/gazebo/msgs/proto/vector2d.proto
   # ${PROTOBUF_IMPORT_DIRS}/vector2d.proto 
   # ${PROTOBUF_IMPORT_DIRS}/header.proto
   # ${PROTOBUF_IMPORT_DIRS}/time.proto
