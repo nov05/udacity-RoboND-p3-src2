@@ -3,6 +3,7 @@ find_package(Protobuf REQUIRED)
 set(PROTOBUF_IMPORT_DIRS)
 foreach(ITR ${GAZEBO_INCLUDE_DIRS})
   if(ITR MATCHES ".*gazebo-[0-9.]+$")
+    ## Modify the directory to match your system's installation of Gazebo
     # set(PROTOBUF_IMPORT_DIRS "${ITR}/gazebo/msgs/proto")  ## changed by nov05
     set(PROTOBUF_IMPORT_DIRS "${ITR}/gazebo-11/msgs/proto")  ## changed by nov05
   endif()
@@ -10,7 +11,7 @@ endforeach()
 
 set (msgs
   collision_map_request.proto
-  # ${PROTOBUF_IMPORT_DIRS}/vector2d.proto 
+  ${PROTOBUF_IMPORT_DIRS}/vector2d.proto 
   # ${PROTOBUF_IMPORT_DIRS}/header.proto
   # ${PROTOBUF_IMPORT_DIRS}/time.proto
 )
