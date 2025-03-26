@@ -10,7 +10,7 @@ endforeach()
 
 set (msgs
   collision_map_request.proto
-  #${PROTOBUF_IMPORT_DIRS}/vector2d.proto
+  ${PROTOBUF_IMPORT_DIRS}/vector2d.proto
   #${PROTOBUF_IMPORT_DIRS}/header.proto
   #${PROTOBUF_IMPORT_DIRS}/time.proto
 )
