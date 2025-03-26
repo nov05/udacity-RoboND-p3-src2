@@ -10,6 +10,6 @@ message CollisionMapRequest
   required gazebo.msgs.Vector2d   lowerLeft  = 4;
   required double                 height     = 5;
   required double                 resolution = 6;
-  optional string                 filename   = 7 [default = ""];
-  optional int32                  threshold  = 8 [default = 255];
+  string                 filename   = 7 [default = ""];
+  int32                  threshold  = 8 [default = 255];
 }
