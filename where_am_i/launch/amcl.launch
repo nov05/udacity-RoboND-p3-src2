@@ -16,6 +16,12 @@
         <!-- If you choose to define initial pose here -->
         <param name="initial_pose_x" value="0" />
         <param name="initial_pose_y" value="-6.5" />
+        <!-- Config Files -->
+        <rosparam file="$(find where_am_i)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find where_am_i)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find where_am_i)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find where_am_i)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find where_am_i)/config/base_local_planner_params.yaml" command="load" />
     </node>
 
     <!-- Move Base -->
