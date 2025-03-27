@@ -4,8 +4,8 @@
   <arg name="save_folder" default="$(find pgm_map_creator)/maps" />
   <arg name="xmin" default="-15" />
   <arg name="xmax" default="15" />
-  <arg name="ymin" default="-9" />
-  <arg name="ymax" default="9" />
+  <arg name="ymin" default="-15" />
+  <arg name="ymax" default="15" />
   <arg name="scan_height" default="5" />
   <arg name="resolution" default="0.05" />
 
