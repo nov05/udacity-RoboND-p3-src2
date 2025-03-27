@@ -1,3 +1,28 @@
 <launch>
-<!-- TODO: Add nodes here -->
+
+    <!-- TODO: Add nodes here -->
+
+    <!-- map server -->
+    <arg name="map_file" default="$(find pgm_map_creator)/maps/udacity_office.yaml" />
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+    <!-- AMCL Node -->
+    <node name="amcl" pkg="amcl" type="amcl" output="screen">
+        <remap from="scan" to="where_am_i/laser/scan" />
+        <param name="odom_frame_id" value="odom" />
+        <param name="odom_model_type" value="diff-corrected" />
+        <param name="base_frame_id" value="robot_footprint" />
+        <param name="global_frame_id" value="map" />
+        <!-- If you choose to define initial pose here -->
+        <param name="initial_pose_x" value="0" />
+        <param name="initial_pose_y" value="-6.5" />
+    </node>
+
+    <!-- Move Base -->
+    <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+        <remap from="scan" to="where_am_i/laser/scan" />
+        <param name="base_global_planner" value="navfn/NavfnROS" />
+        <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
+    </node>
+
 </launch>
