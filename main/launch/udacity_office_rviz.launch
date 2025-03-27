@@ -31,7 +31,7 @@
     </include>
 
     <!-- launch rviz -->
-    <!-- $ rosrun rviz rviz -d ~/catkin_ws2/src/where_am_i/rviz/amcl.rviz -->
+    <!-- $ rosrun rviz rviz -d ~/catkin_ws2/src/main/rviz/amcl.rviz -->
     <node name="rviz" pkg="rviz" type="rviz" respawn="false"
         args="-d $(find main)/rviz/amcl.rviz" />
 
