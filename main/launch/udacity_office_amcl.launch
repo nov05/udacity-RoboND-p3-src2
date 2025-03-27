@@ -20,8 +20,10 @@
         <param name="initial_pose_x" value="0" />
         <param name="initial_pose_y" value="0" />
         <!-- Config Files -->
-        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
-        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load"
+            ns="global_costmap" />
+        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load"
+            ns="local_costmap" />
         <rosparam file="$(find main)/config/local_costmap_params.yaml" command="load" />
         <rosparam file="$(find main)/config/global_costmap_params.yaml" command="load" />
         <rosparam file="$(find main)/config/base_local_planner_params.yaml" command="load" />
@@ -34,4 +36,10 @@
         <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
     </node>
 
+    <!-- RViz -->
+    <!-- $ rosrun rviz rviz -d ~/catkin_ws2/src/main/rviz/amcl.rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" respawn="false"
+        args="-d $(find main)/rviz/amcl.rviz">
+        <param name="transform_tolerance" value="0.5" />
+    </node>
 </launch>
