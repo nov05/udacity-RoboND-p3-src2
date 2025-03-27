@@ -2,6 +2,7 @@
 <launch>
   <arg name="map_name" default="map" />
   <arg name="save_folder" default="$(find pgm_map_creator)/maps" />
+  <!-- It seems that the bgm has to be a square, or it will causes core dump. -->
   <arg name="xmin" default="-20" />
   <arg name="xmax" default="20" />
   <arg name="ymin" default="-20" />
