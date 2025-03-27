@@ -1,6 +1,9 @@
 <launch>
 
     <!-- TODO: Add nodes here -->
+    <!-- Launch my robot "ball chaser" in the udacity office -->
+    <!-- $ roslaunch main udacity_office_rviz.launch -->
+    <include file="$(find main)/launch/udacity_office_rviz.launch"></include>
 
     <!-- map server -->
     <arg name="map_file" default="$(find pgm_map_creator)/maps/udacity_office.yaml" />
