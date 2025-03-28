@@ -7,7 +7,7 @@
   <arg name="xmax" default="20" />
   <arg name="ymin" default="-20" />
   <arg name="ymax" default="20" />
-  <arg name="scan_height" default="5" />
+  <arg name="scan_height" default="1" /> <!-- Not sure about the doors -->
   <arg name="resolution" default="0.05" />
 
   <node pkg="pgm_map_creator" type="request_publisher" name="request_publisher" output="screen"
