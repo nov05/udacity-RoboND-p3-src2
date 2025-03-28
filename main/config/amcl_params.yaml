@@ -2,35 +2,45 @@
 ## http://wiki.ros.org/amcl#Parameters
 ## Using a ChatGPT generated template. Verify carefully.
 
+## Overall filter parameters
+min_particles: 100                # Minimum number of particles
+max_particles: 5000               # Maximum number of particles to use in AMCL
+# kld_err: 0.01                   # KLD error threshold for particle filter
+# kld_z: 0.99                     # KLD z value for particle filter
 # update_min_d: 0.2               # Minimum distance (in meters) that the robot has to move before AMCL is updated
 # update_min_a: 0.2               # Minimum rotation (in radians) that the robot has to rotate before AMCL is updated
-# alpha1: 0.2                     # Odometry noise parameter
-# alpha2: 0.2                     # Odometry noise parameter
-# alpha3: 0.2                     # Odometry noise parameter
-# alpha4: 0.2                     # Odometry noise parameter
-laser_max_range: 30.0           # Maximum laser range (meters)
-laser_min_range: 0.12           # Minimum laser range (meters)
-max_particles: 5000             # Maximum number of particles to use in AMCL
-min_particles: 500              # Minimum number of particles
+resample_interval: 2            # The interval at which to resample particles
 initial_pose_x: -6.5            # Initial x position (in meters)
 initial_pose_y: 0.0             # Initial y position (in meters)
 initial_pose_a: 0.0             # Initial yaw angle (in radians)
-resample_interval: 2            # The interval at which to resample particles
+# gui_publish_rate: 1.0
 transform_tolerance: 1.0        # Time tolerance for the transform from odom to base_link frame
-# odom_frame_id: odom             # Frame of reference for the robot's odometry
-odom_model_type: omni-corrected # diff-corrected
-# base_frame_id: base_link        # Frame of reference for the robot's base
-laser_model_type: likelihood_field          # Type of laser sensor model (beam, likelihood_field_prob if enabled)
 use_map_topic: true             # Whether to subscribe to a map topic
 first_map_only: true            ## When set to true, AMCL will only use the first map it subscribes to
 selective_resampling: true ## When set to true, will reduce the resampling rate when not needed and help avoid particle deprivation
-# kld_err: 0.01                   # KLD error threshold for particle filter
-# kld_z: 0.99                     # KLD z value for particle filter
-# sigma_hit: 0.2                  # Sigma value for sensor hit model
-# lambda_short: 0.1               # Lambda value for short laser readings
-# z_hit: 0.95                     # Hit model parameter
-# z_rand: 0.05                    # Random model parameter
-# z_max: 0.05                     # Maximum laser range
+
+## Laser model parameters
+laser_model_type: likelihood_field  ## Type of laser sensor model (beam, likelihood_field_prob if enabled)
+laser_min_range: 0.12           # Minimum laser range (meters)
+laser_max_range: 30.0           # Maximum laser range (meters)
+# laser_z_hit: 0.95                     # Hit model parameter
+# laser_z_rand: 0.05                    # Random model parameter
+# laser_z_max: 0.05                     # Maximum laser range
+# laser_sigma_hit: 0.2                  # Sigma value for sensor hit model
+# laser_lambda_short: 0.1               # Lambda value for short laser readings
+laser_likelihood_max_dist: 10
+
+## Odometry model parameters
+odom_model_type: omni-corrected # diff-corrected
+odom_frame_id: odom               ## Frame of reference for the robot's odometry
+base_frame_id: base_link          ## Frame of reference for the robot's base. "robot_footprint" causes warnings
+global_frame_id: map
+# tf_broadcast: true
+# odom_alpha1: 0.2                     # Odometry noise parameter
+# odom_alpha2: 0.2                     # Odometry noise parameter
+# odom_alpha3: 0.2                     # Odometry noise parameter
+# odom_alpha4: 0.2                     # Odometry noise parameter
+# odom_alpha5: 0.2                     # Odometry noise parameter
 
 ## Topic to subscribe to for LaserScan data (usually from a sensor like a LIDAR)
 scan_topic: /scan

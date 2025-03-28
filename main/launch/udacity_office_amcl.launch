@@ -14,10 +14,6 @@
     <!-- AMCL -->
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
         <!-- <remap from="scan" to="my_robot/laser/scan" /> -->           <!-- nov05 -->
-        <param name="odom_frame_id" value="odom" />
-        <!-- <param name="base_frame_id" value="robot_footprint" />  -->  <!-- nov05 -->
-        <param name="base_frame_id" value="base_link" />                  <!-- nov05 -->
-        <param name="global_frame_id" value="map" />
         <rosparam file="$(find main)/config/amcl_params.yaml" command="load" />
     </node>
 
