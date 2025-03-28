@@ -13,7 +13,7 @@
 
     <!-- AMCL Node -->
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
-        <!-- <remap from="scan" to="my_robot/laser/scan" /> -->
+        <!-- <remap from="scan" to="my_robot/laser/scan" /> -->           <!-- nov05 -->
         <param name="odom_frame_id" value="odom" />
         <param name="odom_model_type" value="diff-corrected" />
         <!-- <param name="base_frame_id" value="robot_footprint" />  -->  <!-- nov05 -->
@@ -27,20 +27,21 @@
         <param name="transform_tolerance" value="0.5" />
         <param name="min_particles" value="10" />
         <param name="max_particles" value="500" />
-        <!-- Config Files -->
-        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
-        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find main)/config/local_costmap_params.yaml" command="load" />
-        <rosparam file="$(find main)/config/global_costmap_params.yaml" command="load" />
-        <rosparam file="$(find main)/config/base_local_planner_params.yaml" command="load" />
     </node>
 
     <!-- Move Base -->
     <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
-        <!-- <remap from="scan" to="my_robot/laser/scan" /> -->
+        <!-- <remap from="scan" to="my_robot/laser/scan" /> --> 
         <param name="base_global_planner" value="navfn/NavfnROS" />
         <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
-        <param name="meter_scoring" value="true" />
+        <param name="move_base/TrajectoryPlannerROS/meter_scoring" value="true" />
+        <param name="move_base/TrajectoryPlannerROS/rosDebugLevel" value="DEBUG" />
+        <!-- Loading global and local costmap parameters -->
+        <rosparam file="$(find main)/config/common_costmap_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find main)/config/common_costmap_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find main)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find main)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find main)/config/base_local_planner_params.yaml" command="load" />
     </node>
 
     <!-- RViz -->
