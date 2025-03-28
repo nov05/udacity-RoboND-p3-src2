@@ -107,7 +107,7 @@ void process_image_callback(const sensor_msgs::Image img)
         angular_z = -angle;
     }
 
-    drive_robot(linear_x, angular_z);
+    // drive_robot(linear_x, angular_z);
 }
 
 int main(int argc, char **argv)
