@@ -89,22 +89,22 @@ void process_image_callback(const sensor_msgs::Image img)
     else
     {
         linear_x = speed;
-    }
 
-    // If the ball is on the left, turn left and move toward it.
-    if (left_count >= center_count && left_count >= right_count)
-    {
-        // angular_z = angle;
-    }
-    // If the ball is in the center, move forward toward it.
-    else if (center_count > left_count && center_count >= right_count)
-    {
-        angular_z = 0;
-    }
-    // If the ball is on the right, turn right and move toward it.
-    else if (right_count > center_count && right_count > left_count)
-    {
-        angular_z = -angle;
+        // If the ball is on the left, turn left and move toward it.
+        if (left_count >= center_count && left_count >= right_count)
+        {
+            angular_z = angle;
+        }
+        // If the ball is in the center, move forward toward it.
+        else if (center_count > left_count && center_count >= right_count)
+        {
+            angular_z = 0;
+        }
+        // If the ball is on the right, turn right and move toward it.
+        else if (right_count > center_count && right_count > left_count)
+        {
+            angular_z = -angle;
+        }
     }
 
     drive_robot(linear_x, angular_z);
