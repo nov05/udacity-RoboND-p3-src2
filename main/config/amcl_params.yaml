@@ -14,7 +14,7 @@ amcl:
   laser_min_range: 0.12           # Minimum laser range (meters)
   max_particles: 1000             # Maximum number of particles to use in AMCL
   min_particles: 100              # Minimum number of particles
-  initial_pose_x: 0.0 # -6.5            # Initial x position (in meters)
+  initial_pose_x: -6.5            # Initial x position (in meters)
   initial_pose_y: 0.0             # Initial y position (in meters)
   initial_pose_a: 0.0             # Initial yaw angle (in radians)
   resample_interval: 2            # The interval at which to resample particles
