@@ -1,28 +1,27 @@
 ## http://wiki.ros.org/base_local_planner
 
-move_base:
-  # base_local_planner:
-  TrajectoryPlannerROS:
+base_local_planner:
+# TrajectoryPlannerROS:
 
-    ## Robot Configuration Parameters
-    max_vel_x: 1.0 ## 0.5
-    min_vel_x: -0.1 ## 0.01
-    max_vel_theta: 1.57 ## 1.5
-    acc_lim_theta: 3.14
-    acc_lim_x: 2.0
-    acc_lim_y: 2.0
-    min_in_place_vel_theta: 0.314
-    holonomic_robot: false
+  ## Robot Configuration Parameters
+  max_vel_x: 1.0 ## 0.5
+  min_vel_x: -0.1 ## 0.01
+  max_vel_theta: 1.57 ## 1.5
+  acc_lim_theta: 3.14
+  acc_lim_x: 2.0
+  acc_lim_y: 2.0
+  min_in_place_vel_theta: 0.314
+  holonomic_robot: false
 
-    ## Forward Simulation Parameters
-    sim_time: 1.0
-    vx_samples: 5.0
-    vtheta_samples: 10.0
-    controller_frequency: 10
+  ## Forward Simulation Parameters
+  sim_time: 1.0
+  vx_samples: 5.0
+  vtheta_samples: 10.0
+  controller_frequency: 10
 
-    ## Trajectory Scoring Parameters
-    path_distance_bias: 0.6 ## pdist_scale: 0.6, obsolete
-    goal_distance_bias: 0.8 ## gdist_scale: 0.8, obsolete
-    occdist_scale: 0.02
-    meter_scoring: true   
-    publish_cost_grid_pc: true  ## When true, sensor_msgs/PointCloud2
+  ## Trajectory Scoring Parameters
+  path_distance_bias: 0.6 ## pdist_scale: 0.6, obsolete
+  goal_distance_bias: 0.8 ## gdist_scale: 0.8, obsolete
+  occdist_scale: 0.02
+  meter_scoring: true   
+  publish_cost_grid_pc: true  ## When true, sensor_msgs/PointCloud2
