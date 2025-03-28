@@ -10,8 +10,8 @@
 # alpha4: 0.2                     # Odometry noise parameter
 laser_max_range: 30.0           # Maximum laser range (meters)
 laser_min_range: 0.12           # Minimum laser range (meters)
-max_particles: 1000             # Maximum number of particles to use in AMCL
-min_particles: 100              # Minimum number of particles
+max_particles: 5000             # Maximum number of particles to use in AMCL
+min_particles: 500              # Minimum number of particles
 initial_pose_x: -6.5            # Initial x position (in meters)
 initial_pose_y: 0.0             # Initial y position (in meters)
 initial_pose_a: 0.0             # Initial yaw angle (in radians)
@@ -26,8 +26,6 @@ first_map_only: true            ## When set to true, AMCL will only use the firs
 selective_resampling: true ## When set to true, will reduce the resampling rate when not needed and help avoid particle deprivation
 # use_initial_pose: true          # Whether to use initial pose
 # set_map_pose: false             # Whether to set the map pose directly
-min_particles: 10              # Minimum number of particles
-max_particles: 1000             # Maximum number of particles
 # kld_err: 0.01                   # KLD error threshold for particle filter
 # kld_z: 0.99                     # KLD z value for particle filter
 # sigma_hit: 0.2                  # Sigma value for sensor hit model
@@ -35,7 +33,6 @@ max_particles: 1000             # Maximum number of particles
 # z_hit: 0.95                     # Hit model parameter
 # z_rand: 0.05                    # Random model parameter
 # z_max: 0.05                     # Maximum laser range
-# do_beamskip: true               # Whether to perform beam skipping for efficiency
 
 ## Topic to subscribe to for LaserScan data (usually from a sensor like a LIDAR)
 scan_topic: /scan

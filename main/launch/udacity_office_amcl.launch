@@ -1,17 +1,17 @@
 <launch>
 
     <!-- http://wiki.ros.org/amcl#Parameters -->
-
     <!-- TODO: Add nodes here -->
+
     <!-- Launch my robot "ball chaser" in the udacity office -->
     <!-- $ roslaunch main udacity_office_rviz.launch -->
     <include file="$(find my_robot)/launch/udacity_office.launch"></include>
 
-    <!-- map server -->
+    <!-- Map Server -->
     <arg name="map_file" default="$(find pgm_map_creator)/maps/udacity_office.yaml" />
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
-    <!-- AMCL Node -->
+    <!-- AMCL -->
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
         <!-- <remap from="scan" to="my_robot/laser/scan" /> -->           <!-- nov05 -->
         <param name="odom_frame_id" value="odom" />

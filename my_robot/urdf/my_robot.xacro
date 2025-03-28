@@ -90,8 +90,7 @@
   <joint type="continuous" name="left_wheel_hinge">
     <origin xyz="0 0.15 0" rpy="0 0 0" />
     <child link="left_wheel" />
-    <!-- <parent link="chassis" /> --> <!-- nov05 -->
-    <parent link="base_link" />        <!-- nov05 -->
+    <parent link="chassis" /> 
     <axis xyz="0 1 0" rpy="0 0 0" />
     <limit effort="10000" velocity="1000" />
     <dynamics damping="1.0" friction="1.0" />
@@ -123,8 +122,7 @@
   <joint type="continuous" name="right_wheel_hinge">
     <origin xyz="0 -0.15 0" rpy="0 0 0" />
     <child link="right_wheel" />
-    <!-- <parent link="chassis" /> -->  <!-- nov05 -->
-    <parent link="base_link" />         <!-- nov05 -->
+    <parent link="chassis" /> 
     <axis xyz="0 1 0" rpy="0 0 0" />
     <limit effort="10000" velocity="1000" />
     <dynamics damping="1.0" friction="1.0" />
