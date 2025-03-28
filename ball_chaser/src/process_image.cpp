@@ -94,13 +94,10 @@ void process_image_callback(const sensor_msgs::Image img)
     const float angle = 0.5;
 
     float linear_x = 0;
+    float angular_z = 0;
     if (robot_spin == true)
     {
         float angular_z = angle; // spin left when idle
-    }
-    else
-    {
-        float angular_z = 0;
     }
 
     int total_count = left_count + center_count + right_count;
