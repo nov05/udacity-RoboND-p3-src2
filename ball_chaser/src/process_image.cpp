@@ -41,11 +41,6 @@ void process_image_callback(const sensor_msgs::Image img)
     Request a stop when there's no white ball seen by the camera
     */
 
-    ros::NodeHandle n;
-    bool robot_idle_spin = false;
-    // Check if the parameter "robot_spin" exists and get its value
-    n.getParam("robot_idle_spin", robot_idle_spin);
-
     int left_count = 0;
     int center_count = 0;
     int right_count = 0;
@@ -82,11 +77,8 @@ void process_image_callback(const sensor_msgs::Image img)
     const float angle = 0.5;
 
     float linear_x = 0;
+    // float angular_z = angle; // spin left when idle
     float angular_z = 0;
-    if (robot_idle_spin)
-    {
-        float angular_z = angle; // spin left when idle
-    }
 
     int total_count = left_count + center_count + right_count;
     // if too close or too far, don't move
