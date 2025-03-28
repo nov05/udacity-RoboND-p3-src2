@@ -1,7 +1,7 @@
 ## http://wiki.ros.org/base_local_planner
 
-base_local_planner:
-# TrajectoryPlannerROS:
+# base_local_planner:
+TrajectoryPlannerROS:
 
   ## Robot Configuration Parameters
   max_vel_x: 1.0 ## 0.5
