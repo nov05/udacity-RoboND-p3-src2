@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+
     <!-- World File -->
     <arg name="world_file" default="$(find my_robot)/worlds/udacity_office.world" />
     <!-- Launch Gazebo World -->
@@ -20,5 +21,14 @@
         <arg name="my_robot_pitch" default="0" />
         <arg name="my_robot_yaw" default="1.5707" />
     </include>
-    <node name="drive_bot" type="drive_bot" pkg="ball_chaser" respawn="false" output="screen" />
+    <include file="$(find ball_chaser)/launch/ball_chaser.launch">
+        <!-- My Ball Pose -->
+        <arg name="my_ball_x" default="0" />
+        <arg name="my_ball_y" default="-10.5" />
+        <arg name="my_ball_z" default="0" />
+        <arg name="my_ball_roll" default="0" />
+        <arg name="my_ball_pitch" default="0" />
+        <arg name="my_ball_yaw" default="0" />
+    </include>
+
 </launch>
