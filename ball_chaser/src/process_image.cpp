@@ -42,21 +42,9 @@ void process_image_callback(const sensor_msgs::Image img)
     */
 
     ros::NodeHandle n;
-    // Get the node name
-    std::string node_name = ros::this_node::getName();
-
-    // Set default value for the robot_spin parameter
     bool robot_spin = false;
-
     // Check if the parameter "robot_spin" exists and get its value
-    if (n.getParam("robot_spin", robot_spin))
-    {
-        ROS_INFO("[%s]: robot_spin set to \"%s\"", node_name.c_str(), robot_spin ? "true" : "false");
-    }
-    else
-    {
-        ROS_WARN("[%s]: robot_spin not set, using default value \"false\"", node_name.c_str());
-    }
+    n.getParam("robot_idle_spin", robot_idle_spin);
 
     int left_count = 0;
     int center_count = 0;
@@ -95,7 +83,7 @@ void process_image_callback(const sensor_msgs::Image img)
 
     float linear_x = 0;
     float angular_z = 0;
-    if (robot_spin == true)
+    if (robot_idle_spin)
     {
         float angular_z = angle; // spin left when idle
     }
