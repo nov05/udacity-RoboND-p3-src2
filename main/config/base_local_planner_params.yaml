@@ -1,7 +1,8 @@
 ## http://wiki.ros.org/base_local_planner
 
 move_base:
-  base_local_planner:
+  # base_local_planner:
+  TrajectoryPlannerROS:
 
     ## Robot Configuration Parameters
     max_vel_x: 1.0 ## 0.5
@@ -19,7 +20,6 @@ move_base:
     vtheta_samples: 10.0
     controller_frequency: 10
 
-    # TrajectoryPlannerROS:
     ## Trajectory Scoring Parameters
     path_distance_bias: 0.6 ## pdist_scale: 0.6, obsolete
     goal_distance_bias: 0.8 ## gdist_scale: 0.8, obsolete
