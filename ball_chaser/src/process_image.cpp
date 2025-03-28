@@ -41,6 +41,7 @@ void process_image_callback(const sensor_msgs::Image img)
     Request a stop when there's no white ball seen by the camera
     */
 
+    ros::NodeHandle n;
     // Get the node name
     std::string node_name = ros::this_node::getName();
 
