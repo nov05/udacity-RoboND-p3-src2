@@ -11,11 +11,13 @@
 
     <!-- AMCL Node -->
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
-        <remap from="scan" to="my_robot/laser/scan" />
+        <!-- <remap from="scan" to="my_robot/laser/scan" /> -->
+        <remap from="scan" to="scan" />
         <param name="odom_frame_id" value="odom" />
         <param name="odom_model_type" value="diff-corrected" />
         <param name="base_frame_id" value="robot_footprint" />
         <param name="global_frame_id" value="map" />
+        <param name="transform_tolerance" value="0.5" />
         <!-- If you choose to define initial pose here -->
         <param name="initial_pose_x" value="0" />
         <param name="initial_pose_y" value="0" />
@@ -40,6 +42,5 @@
     <!-- $ rosrun rviz rviz -d ~/catkin_ws2/src/main/rviz/amcl.rviz -->
     <node name="rviz" pkg="rviz" type="rviz" respawn="false"
         args="-d $(find main)/rviz/amcl.rviz">
-        <param name="transform_tolerance" value="0.5" />
     </node>
 </launch>
