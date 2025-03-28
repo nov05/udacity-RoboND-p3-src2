@@ -76,7 +76,7 @@ void process_image_callback(const sensor_msgs::Image img)
 
     // spin left when idle
     float linear_x = 0;
-    float angular_z = angle;  
+    float angular_z = angle;
 
     int total_count = left_count + center_count + right_count;
     // if too close or too far, don't move
@@ -113,6 +113,22 @@ int main(int argc, char **argv)
     // Initialize the process_image node and create a handle to it
     ros::init(argc, argv, "process_image");
     ros::NodeHandle n;
+
+    // Get the node name
+    std::string node_name = ros::this_node::getName();
+
+    // Set default value for the robot_spin parameter
+    bool robot_spin = false;
+
+    // Check if the parameter "robot_spin" exists and get its value
+    if (n.getParam("robot_spin", robot_spin))
+    {
+        ROS_INFO("[%s]: robot_spin set to \"%s\"", node_name.c_str(), robot_spin ? "true" : "false");
+    }
+    else
+    {
+        ROS_WARN("[%s]: robot_spin not set, using default value \"false\"", node_name.c_str());
+    }
 
     // Define a client service capable of requesting services from command_robot
     client = n.serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
