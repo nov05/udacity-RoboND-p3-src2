@@ -42,7 +42,7 @@ void process_image_callback(const sensor_msgs::Image img)
     */
 
     ros::NodeHandle n;
-    bool robot_spin = false;
+    bool robot_idle_spin = false;
     // Check if the parameter "robot_spin" exists and get its value
     n.getParam("robot_idle_spin", robot_idle_spin);
 
