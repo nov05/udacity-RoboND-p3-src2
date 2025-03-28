@@ -1,5 +1,7 @@
 <launch>
 
+    <!-- http://wiki.ros.org/amcl#Parameters -->
+
     <!-- TODO: Add nodes here -->
     <!-- Launch my robot "ball chaser" in the udacity office -->
     <!-- $ roslaunch main udacity_office_rviz.launch -->
@@ -11,7 +13,6 @@
 
     <!-- AMCL Node -->
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
-        <!-- <remap from="scan" to="my_robot/laser/scan" /> -->
         <remap from="scan" to="scan" />
         <param name="odom_frame_id" value="odom" />
         <param name="odom_model_type" value="diff-corrected" />
@@ -19,13 +20,11 @@
         <param name="global_frame_id" value="map" />
         <param name="transform_tolerance" value="0.5" />
         <!-- If you choose to define initial pose here, e.g. (-6.5, 0) -->
-        <param name="initial_pose_x" value="0" />  #
+        <param name="initial_pose_x" value="-6.5" />
         <param name="initial_pose_y" value="0" />
         <!-- Config Files -->
-        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load"
-            ns="global_costmap" />
-        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load"
-            ns="local_costmap" />
+        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find main)/config/local_costmap_params.yaml" command="load" />
         <rosparam file="$(find main)/config/global_costmap_params.yaml" command="load" />
         <rosparam file="$(find main)/config/base_local_planner_params.yaml" command="load" />
@@ -33,7 +32,8 @@
 
     <!-- Move Base -->
     <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
-        <remap from="scan" to="my_robot/laser/scan" />
+        <!-- <remap from="scan" to="my_robot/laser/scan" /> -->
+        <remap from="scan" to="scan" />
         <param name="base_global_planner" value="navfn/NavfnROS" />
         <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
     </node>
