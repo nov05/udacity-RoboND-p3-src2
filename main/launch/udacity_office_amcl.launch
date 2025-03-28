@@ -15,17 +15,10 @@
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
         <!-- <remap from="scan" to="my_robot/laser/scan" /> -->           <!-- nov05 -->
         <param name="odom_frame_id" value="odom" />
-        <param name="odom_model_type" value="diff-corrected" />
         <!-- <param name="base_frame_id" value="robot_footprint" />  -->  <!-- nov05 -->
         <param name="base_frame_id" value="base_link" />                  <!-- nov05 -->
         <param name="global_frame_id" value="map" />
-        <!-- If you choose to define initial pose here -->
-        <param name="initial_pose_x" value="-6.5" />
-        <param name="initial_pose_y" value="0" />
-        <param name="initial_pose_theta" value="0.0"/>
-        <!-- Other params -->
-        <param name="min_particles" value="10" />
-        <param name="max_particles" value="500" />
+        <rosparam file="$(find main)/config/amcl_params.yaml" command="load" />
     </node>
 
     <!-- Move Base -->
@@ -33,8 +26,6 @@
         <!-- <remap from="scan" to="my_robot/laser/scan" /> --> 
         <param name="base_global_planner" value="navfn/NavfnROS" />
         <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
-        <param name="move_base/TrajectoryPlannerROS/meter_scoring" value="true" />
-        <param name="move_base/TrajectoryPlannerROS/rosDebugLevel" value="DEBUG" />
         <!-- Loading global and local costmap parameters -->
         <rosparam file="$(find main)/config/common_costmap_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find main)/config/common_costmap_params.yaml" command="load" ns="local_costmap" />

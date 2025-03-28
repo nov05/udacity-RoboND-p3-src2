@@ -2,6 +2,7 @@ controller_frequency: 10
 
 TrajectoryPlannerROS:
   meter_scoring: true   
+  rosDebugLevel: DEBUG
 
   max_vel_x: 1.0 ## 0.5
   min_vel_x: -0.1 ## 0.01
