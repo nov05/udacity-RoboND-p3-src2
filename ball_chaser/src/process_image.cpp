@@ -33,11 +33,29 @@ void drive_robot(float linear_x, float angular_z)
 void process_image_callback(const sensor_msgs::Image img)
 {
 
-    // https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html
-    // TODO: Loop through each pixel in the image and check if there's a bright white one
-    // Then, identify if this pixel falls in the left, mid, or right side of the image
-    // Depending on the white ball position, call the drive_bot function and pass velocities to it
-    // Request a stop when there's no white ball seen by the camera
+    /*
+    https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html
+    TODO: Loop through each pixel in the image and check if there's a bright white one
+    Then, identify if this pixel falls in the left, mid, or right side of the image
+    Depending on the white ball position, call the drive_bot function and pass velocities to it
+    Request a stop when there's no white ball seen by the camera
+    */
+
+    // Get the node name
+    std::string node_name = ros::this_node::getName();
+
+    // Set default value for the robot_spin parameter
+    bool robot_spin = false;
+
+    // Check if the parameter "robot_spin" exists and get its value
+    if (n.getParam("robot_spin", robot_spin))
+    {
+        ROS_INFO("[%s]: robot_spin set to \"%s\"", node_name.c_str(), robot_spin ? "true" : "false");
+    }
+    else
+    {
+        ROS_WARN("[%s]: robot_spin not set, using default value \"false\"", node_name.c_str());
+    }
 
     int left_count = 0;
     int center_count = 0;
@@ -74,9 +92,15 @@ void process_image_callback(const sensor_msgs::Image img)
     const float speed = 0.4;
     const float angle = 0.5;
 
-    // spin left when idle
     float linear_x = 0;
-    float angular_z = angle;
+    if (robot_spin == true)
+    {
+        float angular_z = angle; // spin left when idle
+    }
+    else
+    {
+        float angular_z = 0;
+    }
 
     int total_count = left_count + center_count + right_count;
     // if too close or too far, don't move
@@ -113,22 +137,6 @@ int main(int argc, char **argv)
     // Initialize the process_image node and create a handle to it
     ros::init(argc, argv, "process_image");
     ros::NodeHandle n;
-
-    // Get the node name
-    std::string node_name = ros::this_node::getName();
-
-    // Set default value for the robot_spin parameter
-    bool robot_spin = false;
-
-    // Check if the parameter "robot_spin" exists and get its value
-    if (n.getParam("robot_spin", robot_spin))
-    {
-        ROS_INFO("[%s]: robot_spin set to \"%s\"", node_name.c_str(), robot_spin ? "true" : "false");
-    }
-    else
-    {
-        ROS_WARN("[%s]: robot_spin not set, using default value \"false\"", node_name.c_str());
-    }
 
     // Define a client service capable of requesting services from command_robot
     client = n.serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
