@@ -16,7 +16,7 @@
       <odometryFrame>odom</odometryFrame>
       <!-- <robotBaseFrame>robot_footprint</robotBaseFrame> -->   <!-- nov05 -->
       <robotBaseFrame>base_link</robotBaseFrame>                  <!-- nov05 -->
-      <publishWheelTF>false</publishWheelTF>
+      <publishWheelTF>true</publishWheelTF>                       <!-- nov05 -->
       <publishWheelJointState>false</publishWheelJointState>
       <rosDebugLevel>na</rosDebugLevel>
       <wheelAcceleration>0</wheelAcceleration>
