@@ -4,7 +4,8 @@
   <xacro:include filename="$(find my_robot)/urdf/my_robot.gazebo" />
 
   <!-- Import gazebo elements -->
-  <link name="robot_footprint" />
+  <!-- <link name="robot_footprint" /> --> <!-- nov05 -->
+  <link name="base_link" />                <!-- nov05 -->
 
   <link name='chassis'>
     <pose>0 0 0.1 0 0 0</pose>

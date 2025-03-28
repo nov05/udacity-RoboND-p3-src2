@@ -14,7 +14,8 @@
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>robot_footprint</robotBaseFrame>
+      <!-- <robotBaseFrame>robot_footprint</robotBaseFrame> -->   <!-- nov05 -->
+      <robotBaseFrame>base_link</robotBaseFrame>                  <!-- nov05 -->
       <publishWheelTF>false</publishWheelTF>
       <publishWheelJointState>false</publishWheelJointState>
       <rosDebugLevel>na</rosDebugLevel>
