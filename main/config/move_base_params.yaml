@@ -1,0 +1,3 @@
+move_base:
+    base_frame_id: robot_footprint
+    global_frame_id: map
