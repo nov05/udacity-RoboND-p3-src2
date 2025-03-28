@@ -3,9 +3,13 @@ global_costmap:
    # robot_base_frame: robot_footprint  ## nov05: Not using "base_link" causes warning "source_frame base_link does not exist"
    robot_base_frame: base_link          ## nov05: Change the "my_robot" base link accordingly
    update_frequency: 1.0 # 2.0          ## nov05: Lower this value if 2.0 Hz is too high for your system
-   publish_frequency: 2.0
+   publish_frequency: 1.0 # 2.0
    width: 40.0
    height: 40.0
    resolution: 0.05
    static_map: true
    rolling_window: false
+   plugins:
+      - {name: static_layer, type: "costmap_2d::StaticLayer"}
+      - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+      - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
