@@ -1,6 +1,8 @@
 <launch>
 
     <!-- http://wiki.ros.org/amcl#Parameters -->
+    <!-- http://wiki.ros.org/move_base#Parameters -->
+
     <!-- TODO: Add nodes here -->
 
     <!-- Launch my robot "ball chaser" in the udacity office -->
@@ -21,6 +23,7 @@
     <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
         <!-- <remap from="scan" to="my_robot/laser/scan" /> --> 
         <param name="base_global_planner" value="navfn/NavfnROS" />
+        <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner" /> -->
         <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
         <!-- Loading global and local costmap parameters -->
         <rosparam file="$(find main)/config/common_costmap_params.yaml" command="load" ns="global_costmap" />
