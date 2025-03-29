@@ -1,4 +1,4 @@
-image: udacity_office.pgm
+image: udacity_office_edited.pgm
 resolution: 0.05
 origin: [-20.0, -20.0, 0]
 occupied_thresh: 0.65
