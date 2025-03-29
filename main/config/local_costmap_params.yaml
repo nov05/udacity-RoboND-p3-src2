@@ -3,7 +3,7 @@ local_costmap:
    # robot_base_frame: robot_footprint  ## nov05
    robot_base_frame: base_link          ## nov05
    update_frequency: 5.0
-   publish_frequency: 2.0 # 5.0
+   publish_frequency: 5.0
    width: 10.0
    height: 10.0
    origin_x: -5.0  ## Half of the width/height for centering around the robot
