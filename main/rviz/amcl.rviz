@@ -4,7 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
         - /RobotModel1/Links1
       Splitter Ratio: 0.4476987421512604
     Tree Height: 391
