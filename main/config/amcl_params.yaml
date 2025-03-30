@@ -3,8 +3,8 @@
 ## Using a ChatGPT generated template. Verify carefully.
 
 ## Overall filter parameters
-min_particles: 10                # Minimum number of particles
-max_particles: 500               # Maximum number of particles to use in AMCL
+min_particles: 500                # Minimum number of particles
+max_particles: 5000               # Maximum number of particles to use in AMCL
 # kld_err: 0.01                   # KLD error threshold for particle filter
 # kld_z: 0.99                     # KLD z value for particle filter
 # update_min_d: 0.2               # Minimum distance (in meters) that the robot has to move before AMCL is updated
