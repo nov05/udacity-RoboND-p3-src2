@@ -4,13 +4,13 @@ TrajectoryPlannerROS:
 
   ## Robot Configuration Parameters
   max_vel_x: 0.5
-  min_vel_x: 0.05        ## ⚠️ Never stop (!=-0.1) for Monte Carlo localization
-  max_vel_theta: 3.14 # 1.57
+  min_vel_x: 0.02        ## ⚠️ Never stop (!=-0.1) for Monte Carlo localization
+  max_vel_theta: 2.094   ## 120 degree ~ 2.094, 90 degree ~ 1.57
   min_vel_theta: 0.0314  ## ⚠️
   acc_lim_x: 1.0 # 2.5
   acc_lim_y: 1.0 # 2.5
   acc_lim_theta: 3.14
-  min_in_place_vel_theta: 0.628 # 0.314
+  min_in_place_vel_theta: 0.314
   holonomic_robot: false
 
   ## Forward Simulation Parameters
