@@ -3,8 +3,8 @@
 ## Using a ChatGPT generated template. Verify carefully.
 
 ## Overall filter parameters
-min_particles: 10                # Minimum number of particles
-max_particles: 100               # Maximum number of particles to use in AMCL
+min_particles: 100                # Minimum number of particles
+max_particles: 1000               # Maximum number of particles to use in AMCL
 # kld_err: 0.01                   # KLD error threshold for particle filter
 # kld_z: 0.99                     # KLD z value for particle filter
 # update_min_d: 0.2               # Minimum distance (in meters) that the robot has to move before AMCL is updated
@@ -20,7 +20,7 @@ first_map_only: true            ## When set to true, AMCL will only use the firs
 selective_resampling: true ## When set to true, will reduce the resampling rate when not needed and help avoid particle deprivation
 
 ## Laser model parameters
-laser_model_type: likelihood_field  ## Type of laser sensor model (beam, likelihood_field_prob if enabled)
+laser_model_type: likelihood_field_prob  ## Type of laser sensor model (beam, likelihood_field_prob if enabled)
 laser_min_range: 0.12           # Minimum laser range (meters)
 laser_max_range: 30.0           # Maximum laser range (meters)
 # laser_z_hit: 0.95                     # Hit model parameter
