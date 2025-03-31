@@ -6,7 +6,7 @@ TrajectoryPlannerROS:
   max_vel_x: 0.5
   min_vel_x: 0.01         ## ⚠️ Never stop (!=-0.1) for Monte Carlo localization
   max_vel_theta: 1.57   
-  min_vel_theta: 0.03     ## ⚠️
+  min_vel_theta: 0.01     ## ⚠️
   acc_lim_x: 1.0 # 2.5
   acc_lim_y: 1.0 # 2.5
   acc_lim_theta: 3.14
