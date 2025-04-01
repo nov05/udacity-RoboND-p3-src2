@@ -26,8 +26,8 @@
         <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner" /> -->
         <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
         <!-- Loading global and local costmap parameters -->
-        <rosparam file="$(find main)/config/common_costmap_params.yaml" command="load" ns="global_costmap" />
-        <rosparam file="$(find main)/config/common_costmap_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find main)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find main)/config/global_costmap_params.yaml" command="load" />
         <rosparam file="$(find main)/config/local_costmap_params.yaml" command="load" />
         <rosparam file="$(find main)/config/base_local_planner_params.yaml" command="load" />
