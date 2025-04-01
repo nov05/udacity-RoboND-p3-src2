@@ -10,7 +10,7 @@
     <include file="$(find my_robot)/launch/udacity_office.launch"></include>
 
     <!-- Map Server -->
-    <arg name="map_file" default="$(find pgm_map_creator)/maps/udacity_office.yaml" />
+    <arg name="map_file" default="$(find main)/maps/udacity_office.yaml" />
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
     <!-- AMCL -->
