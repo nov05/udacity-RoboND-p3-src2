@@ -25,7 +25,7 @@
     <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"
         args="-urdf -model turtlebot3_$(arg model) 
         -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) 
-        -roll $(arg roll_pos) -pitch $(arg pitch_pos) -yaw $(arg yaw_pos)
+        -R $(arg roll_pos) -P $(arg pitch_pos) -Y $(arg yaw_pos)
         -param robot_description" />
 
     <!-- Robot State Publisher -->
