@@ -41,10 +41,9 @@
 
     <!-- AMCL -->
     <include file="$(find turtlebot3_navigation)/launch/amcl.launch">
-        <param name="initial_pose_x" value="0" />
-        <param name="initial_pose_y" value="-6.5" />
-        <param name="initial_pose_a" value="1.5707" />
-        <param name="wait_for_transform" value="true" />
+        <arg name="initial_pose_x" value="$(arg x_pos)" />
+        <arg name="initial_pose_y" value="$(arg y_pos)" />
+        <arg name="initial_pose_a" value="$(arg yaw_pos)" />
     </include>
 
     <!-- move_base -->
