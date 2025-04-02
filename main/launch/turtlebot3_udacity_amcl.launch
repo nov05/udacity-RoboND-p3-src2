@@ -1,6 +1,6 @@
 <launch>
 
-    <!-- Turtlebot3 World -->
+    <!-- World -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="world_name" value="$(find my_robot)/worlds/udacity_office.world" />
         <arg name="paused" value="false" />
