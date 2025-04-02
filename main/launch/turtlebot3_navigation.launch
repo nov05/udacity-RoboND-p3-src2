@@ -22,6 +22,7 @@
         args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
 
     <!-- Robot State Publisher -->
+    <arg name="multi_robot_name" default=""/>
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" value="$(arg multi_robot_name)" />
