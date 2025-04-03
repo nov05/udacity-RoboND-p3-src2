@@ -5,8 +5,8 @@
 
     <!-- TODO: Add nodes here -->
 
-    <!-- Launch my robot "ball chaser" in the udacity office -->
-    <!-- $ roslaunch main udacity_office_rviz.launch -->
+    <!-- Launch "my_robot" in the udacity office -->
+    <!-- $ roslaunch main udacity_office.launch -->
     <include file="$(find my_robot)/launch/udacity_office.launch"></include>
 
     <!-- Map Server -->
